@@ -14,17 +14,19 @@ export default defineConfig({
 				propsDestructure: true,
 			},
 		}),
+
 		VitePWA({
+		  injectRegister: 'auto',
 		  strategies: 'injectManifest',
 		  srcDir: 'src',
 		  filename: 'sw.ts',
-
+		  start_url: "/lms",
+		  display: "fullscreen",
 		  includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
-
 		  manifest: {
 			name: 'Invictus LMS',
 			short_name: 'LMS',
-			description: 'One lms to rule em all',
+			description: 'One lms to rule them all',
 			theme_color: '#ffffff',
 			icons: [
 			  {
@@ -39,9 +41,7 @@ export default defineConfig({
 			  }
 			]
 		  },
-
 		  registerType: 'autoUpdate',
-
 		  workbox: {
 			globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
 			runtimeCaching: [{
@@ -58,7 +58,6 @@ export default defineConfig({
 				  }
 				}]
 		  },
-
 		  devOptions: {
 			  enabled: true,
 			  type: 'module',
