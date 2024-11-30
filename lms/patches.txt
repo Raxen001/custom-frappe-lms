@@ -1,0 +1,98 @@
+[pre_model_sync]
+community.patches.set_email_preferences
+community.patches.change_name_for_community_members
+community.patches.save_abbr_for_community_members
+community.patches.create_mentor_request_email_templates
+community.patches.replace_member_with_user_in_batch_membership
+community.patches.replace_member_with_user_in_course_mentor_mapping
+community.patches.replace_member_with_user_in_lms_message
+community.patches.replace_member_with_user_in_mentor_request
+community.patches.v0_0.chapter_lesson_index_table
+execute:frappe.delete_doc("DocType", "LMS Message")
+community.patches.v0_0.course_instructor_update
+execute:frappe.delete_doc("DocType", "Discussion Message")
+execute:frappe.delete_doc("DocType", "Discussion Thread")
+community.patches.v0_0.rename_chapters_and_lessons_doctype
+community.patches.v0_0.rename_chapter_and_lesson_doctype #30-09-2021
+execute:frappe.delete_doc("DocType", "Chapters") #06-10-2021
+execute:frappe.delete_doc("DocType", "Lessons") #06-10-2021
+execute:frappe.delete_doc("DocType", "Chapter") #06-10-2021
+execute:frappe.delete_doc("DocType", "Lesson") #06-10-2021
+execute:frappe.delete_doc("DocType", "LMS Topic") #06-10-2021
+school.patches.v0_0.add_progress_to_membership #20-10-2021
+execute:frappe.delete_doc("Workspace", "LMS", ignore_missing=True, force=True) #24-10-2021
+execute:frappe.delete_doc("Custom Field", "User-verify_age", ignore_missing=True, force=True)
+school.patches.v0_0.multiple_instructors #11-02-2022
+school.patches.v0_0.set_course_in_lesson #21-03-2022
+school.patches.v0_0.set_status_in_course #21-03-2022
+lms.patches.v0_0.change_published_field_data #25-03-2022
+execute:frappe.delete_doc("Workspace", "School", ignore_missing=True, force=True)
+lms.patches.v0_0.move_certification_to_certificate
+lms.patches.v0_0.quiz_submission_member
+lms.patches.v0_0.delete_old_module_docs #08-07-2022
+lms.patches.v0_0.delete_course_web_forms #21-08-2022
+lms.patches.v0_0.create_course_instructor_role #29-08-2022
+lms.patches.v0_0.create_course_moderator_role
+lms.patches.v0_0.set_dashboard #11-10-2022
+lms.patches.v0_0.set_courses_page_as_home
+lms.patches.v0_0.set_member_in_progress #03-03-2023
+lms.patches.v0_0.convert_progress_to_float
+lms.patches.v0_0.add_pages_to_nav #25-11-2022
+lms.patches.v0_0.change_role_names
+lms.patches.v0_0.quiz_submission_result
+lms.patches.v0_0.skill_to_user_skill
+lms.patches.v0_0.rename_instructor_role
+lms.patches.v0_0.change_course_creation_settings #12-12-2022
+lms.patches.v0_0.check_onboarding_status #21-12-2022
+lms.patches.v0_0.assignment_file_type
+lms.patches.v0_0.user_singles_issue #23-11-2022
+lms.patches.v0_0.rename_community_to_users #06-01-2023
+lms.patches.v0_0.video_embed_link
+lms.patches.v0_0.rename_exercise_doctype
+lms.patches.v0_0.add_question_type #09-04-2023
+lms.patches.v0_0.share_certificates
+execute:frappe.delete_doc("Web Form", "class", ignore_missing=True, force=True)
+lms.patches.v0_0.amend_course_and_lesson_editor_fields
+lms.patches.v0_0.convert_course_description_to_html #11-05-2023
+lms.patches.v1_0.rename_assignment_doctype
+execute:frappe.permissions.reset_perms("LMS Assignment")
+execute:frappe.permissions.reset_perms("LMS Quiz")
+lms.patches.v1_0.create_class_evaluator_role
+execute:frappe.permissions.reset_perms("LMS Class")
+execute:frappe.permissions.reset_perms("Course Evaluator")
+execute:frappe.permissions.reset_perms("LMS Certificate Request")
+execute:frappe.permissions.reset_perms("LMS Certificate Evaluation")
+lms.patches.v1_0.paid_certificate_to_paid_course #18-08-2023
+lms.patches.v1_0.revert_class_registration #18-08-2023
+lms.patches.v1_0.rename_lms_batch_doctype
+lms.patches.v1_0.rename_lms_batch_membership_doctype
+lms.patches.v1_0.rename_lms_class_to_lms_batch
+lms.patches.v1_0.rename_classes_in_navbar
+lms.patches.v1_0.publish_batches
+lms.patches.v1_0.publish_certificates
+lms.patches.v1_0.change_naming_for_batch_course #14-09-2023
+execute:frappe.permissions.reset_perms("LMS Enrollment")
+lms.patches.v1_0.create_student_role
+lms.patches.v1_0.mark_confirmation_for_batch_students
+lms.patches.v1_0.create_quiz_questions
+lms.patches.v1_0.add_default_marks #16-10-2023
+lms.patches.v1_0.add_certificate_template #26-10-2023
+lms.patches.v1_0.create_batch_source
+
+[post_model_sync]
+lms.patches.v1_0.batch_tabs_settings
+execute:frappe.delete_doc("Notification", "Assignment Submission Notification")
+lms.patches.v1_0.change_jobs_url #19-01-2024
+lms.patches.v1_0.custom_perm_for_discussions #14-01-2024
+lms.patches.v1_0.rename_evaluator_role
+lms.patches.v1_0.change_navbar_urls
+lms.patches.v1_0.set_published_on
+lms.patches.v2_0.fix_progress_percentage
+lms.patches.v2_0.add_discussion_topic_titles
+lms.patches.v2_0.sidebar_settings
+lms.patches.v2_0.delete_certificate_request_notification #18-09-2024
+lms.patches.v2_0.add_course_statistics #21-10-2024
+lms.patches.v2_0.give_discussions_permissions
+lms.patches.v2_0.delete_web_forms
+lms.patches.v2_0.update_desk_access_for_lms_roles
+lms.patches.v2_0.update_quiz_submission_data

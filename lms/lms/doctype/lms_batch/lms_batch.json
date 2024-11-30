@@ -1,0 +1,383 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format: CLS-{#####}",
+ "creation": "2022-11-09 16:14:05.876933",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "published",
+  "title",
+  "start_date",
+  "end_date",
+  "column_break_4",
+  "allow_self_enrollment",
+  "start_time",
+  "end_time",
+  "timezone",
+  "section_break_rgfj",
+  "medium",
+  "category",
+  "column_break_flwy",
+  "seat_count",
+  "evaluation_end_date",
+  "section_break_6",
+  "description",
+  "column_break_hlqw",
+  "instructors",
+  "meta_image",
+  "section_break_khcn",
+  "batch_details",
+  "batch_details_raw",
+  "section_break_jgji",
+  "students",
+  "courses",
+  "assessment_tab",
+  "assessment",
+  "schedule_tab",
+  "timetable_template",
+  "column_break_anya",
+  "show_live_class",
+  "allow_future",
+  "section_break_ontp",
+  "timetable",
+  "timetable_legends",
+  "pricing_tab",
+  "section_break_gsac",
+  "paid_batch",
+  "column_break_iens",
+  "amount",
+  "currency",
+  "amount_usd",
+  "customisations_tab",
+  "section_break_ubxi",
+  "custom_component",
+  "column_break_pxgb",
+  "custom_script"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "students",
+   "fieldtype": "Table",
+   "label": "Students",
+   "options": "Batch Student"
+  },
+  {
+   "fieldname": "courses",
+   "fieldtype": "Table",
+   "label": "Courses",
+   "options": "Batch Course"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "custom_component",
+   "fieldtype": "Code",
+   "label": "Custom HTML",
+   "options": "HTML"
+  },
+  {
+   "default": "0",
+   "description": "Students will be enrolled in a paid batch once they complete the payment",
+   "fieldname": "paid_batch",
+   "fieldtype": "Check",
+   "label": "Paid Batch"
+  },
+  {
+   "fieldname": "seat_count",
+   "fieldtype": "Int",
+   "label": "Seat Count"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "label": "End Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assessment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Assessment"
+  },
+  {
+   "fieldname": "assessment",
+   "fieldtype": "Table",
+   "label": "Assessment",
+   "options": "LMS Assessment"
+  },
+  {
+   "fieldname": "section_break_rgfj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Online",
+   "fieldname": "medium",
+   "fieldtype": "Select",
+   "label": "Medium",
+   "options": "Online\nOffline"
+  },
+  {
+   "fieldname": "column_break_flwy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "LMS Category"
+  },
+  {
+   "description": "These customisations will work on the main batch page.",
+   "fieldname": "section_break_ubxi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "schedule_tab",
+   "fieldtype": "Tab Break",
+   "label": "Timetable"
+  },
+  {
+   "fieldname": "section_break_gsac",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_iens",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "paid_batch",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "mandatory_depends_on": "paid_batch"
+  },
+  {
+   "depends_on": "paid_batch",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "mandatory_depends_on": "paid_batch",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "batch_details",
+   "fieldtype": "Text Editor",
+   "label": "Batch Details",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published"
+  },
+  {
+   "fieldname": "timetable",
+   "fieldtype": "Table",
+   "label": "Timetable",
+   "options": "LMS Batch Timetable"
+  },
+  {
+   "fieldname": "timetable_template",
+   "fieldtype": "Link",
+   "label": "Timetable Template",
+   "options": "LMS Timetable Template"
+  },
+  {
+   "fieldname": "column_break_anya",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "show_live_class",
+   "fieldtype": "Check",
+   "label": "Show live class"
+  },
+  {
+   "fieldname": "section_break_ontp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "batch_details_raw",
+   "fieldtype": "HTML Editor",
+   "label": "Batch Details Raw"
+  },
+  {
+   "fieldname": "column_break_hlqw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_jgji",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "meta_image",
+   "fieldtype": "Attach Image",
+   "label": "Meta Image"
+  },
+  {
+   "fieldname": "column_break_pxgb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customisations_tab",
+   "fieldtype": "Tab Break",
+   "label": "Customisations"
+  },
+  {
+   "fieldname": "pricing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Pricing"
+  },
+  {
+   "fieldname": "custom_script",
+   "fieldtype": "Code",
+   "label": "Custom Script (JavaScript)",
+   "options": "Javascript"
+  },
+  {
+   "fieldname": "timetable_legends",
+   "fieldtype": "Table",
+   "label": "Timetable Legends",
+   "options": "LMS Timetable Legend"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_future",
+   "fieldtype": "Check",
+   "label": "Allow accessing future dates"
+  },
+  {
+   "fieldname": "evaluation_end_date",
+   "fieldtype": "Date",
+   "label": "Evaluation End Date"
+  },
+  {
+   "depends_on": "paid_batch",
+   "description": "If you set an amount here, then the USD equivalent setting will not get applied.",
+   "fieldname": "amount_usd",
+   "fieldtype": "Currency",
+   "label": "Amount (USD)"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_self_enrollment",
+   "fieldtype": "Check",
+   "label": "Allow Self Enrollment"
+  },
+  {
+   "fieldname": "timezone",
+   "fieldtype": "Data",
+   "label": "Timezone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Table MultiSelect",
+   "label": "Instructors",
+   "options": "Course Instructor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_khcn",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-18 16:28:41.336928",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "LMS Batch",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Moderator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Batch Evaluator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

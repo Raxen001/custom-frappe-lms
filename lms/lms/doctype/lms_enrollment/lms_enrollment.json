@@ -1,0 +1,181 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "creation": "2022-02-07 12:01:40.929633",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "course",
+  "progress",
+  "payment",
+  "current_lesson",
+  "column_break_3",
+  "member",
+  "member_name",
+  "member_username",
+  "section_break_8",
+  "cohort",
+  "subgroup",
+  "batch_old",
+  "column_break_12",
+  "member_type",
+  "role"
+ ],
+ "fields": [
+  {
+   "fieldname": "batch_old",
+   "fieldtype": "Link",
+   "label": "Batch Old",
+   "options": "LMS Batch Old"
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Member",
+   "options": "User",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Student",
+   "fieldname": "member_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Member Type",
+   "options": "\nStudent\nMentor\nStaff"
+  },
+  {
+   "default": "Member",
+   "fieldname": "role",
+   "fieldtype": "Select",
+   "label": "Role",
+   "options": "\nMember\nAdmin"
+  },
+  {
+   "fetch_from": "member.full_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "batch.course",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Course",
+   "options": "LMS Course",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "current_lesson",
+   "fieldtype": "Link",
+   "label": "Current Lesson",
+   "options": "Course Lesson"
+  },
+  {
+   "fetch_from": "member.username",
+   "fieldname": "member_username",
+   "fieldtype": "Data",
+   "label": "Memeber Username",
+   "read_only": 1
+  },
+  {
+   "fieldname": "progress",
+   "fieldtype": "Float",
+   "label": "Progress",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cohort",
+   "fieldtype": "Link",
+   "label": "Cohort",
+   "options": "Cohort"
+  },
+  {
+   "fieldname": "subgroup",
+   "fieldtype": "Link",
+   "label": "Subgroup",
+   "options": "Cohort Subgroup"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "payment",
+   "fieldtype": "Link",
+   "label": "Payment",
+   "options": "LMS Payment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-30 12:44:16.103598",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "LMS Enrollment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LMS Student",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Moderator",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "member_name",
+ "track_changes": 1
+}

@@ -1,0 +1,202 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_rename": 1,
+ "autoname": "format:{####} {title}",
+ "creation": "2021-05-03 06:21:12.995984",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "include_in_preview",
+  "column_break_4",
+  "chapter",
+  "is_scorm_package",
+  "course",
+  "section_break_11",
+  "content",
+  "body",
+  "column_break_cjmf",
+  "instructor_content",
+  "instructor_notes",
+  "section_break_6",
+  "youtube",
+  "column_break_9",
+  "quiz_id",
+  "section_break_16",
+  "question",
+  "column_break_15",
+  "file_type",
+  "column_break_syza",
+  "help"
+ ],
+ "fields": [
+  {
+   "fieldname": "chapter",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Course Chapter",
+   "options": "Course Chapter",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "include_in_preview",
+   "fieldtype": "Check",
+   "label": "Include In Preview"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Markdown Editor",
+   "ignore_xss_filter": 1,
+   "label": "Body"
+  },
+  {
+   "fieldname": "help",
+   "fieldtype": "HTML"
+  },
+  {
+   "fetch_from": "chapter.course",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Course",
+   "options": "LMS Course",
+   "read_only": 1
+  },
+  {
+   "description": "Quiz will appear at the bottom of the lesson.",
+   "fieldname": "quiz_id",
+   "fieldtype": "Data",
+   "label": "Quiz ID"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "YouTube Video will appear at the top of the lesson.",
+   "fieldname": "youtube",
+   "fieldtype": "Data",
+   "label": "YouTube Video URL"
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Assignment"
+  },
+  {
+   "description": "Assignment will appear at the bottom of the lesson.",
+   "fieldname": "question",
+   "fieldtype": "Small Text",
+   "label": "Question"
+  },
+  {
+   "fieldname": "file_type",
+   "fieldtype": "Select",
+   "label": "File Type",
+   "mandatory_depends_on": "question",
+   "options": "\nImage\nDocument\nPDF"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "instructor_notes",
+   "fieldtype": "Markdown Editor",
+   "label": "Instructor Notes"
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Text",
+   "label": "Content"
+  },
+  {
+   "fieldname": "column_break_cjmf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "instructor_content",
+   "fieldtype": "Text",
+   "label": "Instructor Content"
+  },
+  {
+   "fieldname": "column_break_syza",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "chapter.is_scorm_package",
+   "fieldname": "is_scorm_package",
+   "fieldtype": "Check",
+   "label": "Is SCORM Package",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-14 13:46:56.838659",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "Course Lesson",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LMS Student",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

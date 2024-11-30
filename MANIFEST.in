@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include invicus-lms *.css
+recursive-include invicus-lms *.csv
+recursive-include invicus-lms *.html
+recursive-include invicus-lms *.ico
+recursive-include invicus-lms *.js
+recursive-include invicus-lms *.json
+recursive-include invicus-lms *.md
+recursive-include invicus-lms *.png
+recursive-include invicus-lms *.py
+recursive-include invicus-lms *.svg
+recursive-include invicus-lms *.txt
+recursive-exclude invicus-lms *.pyc

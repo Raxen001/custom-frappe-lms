@@ -1,0 +1,218 @@
+{
+ "app": "lms",
+ "charts": [
+  {
+   "chart_name": "New Signups",
+   "label": "Signups"
+  },
+  {
+   "chart_name": "Course Enrollments",
+   "label": "Enrollments"
+  }
+ ],
+ "content": "[{\"id\":\"jNO4sdKxHu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Get Started</b></span>\",\"col\":12}},{\"id\":\"5s0qRBc4rY\",\"type\":\"paragraph\",\"data\":{\"text\":\"<a href=\\\"/lms/courses\\\">Visit LMS Portal</a>\",\"col\":4}},{\"id\":\"lGMuNLpmv-\",\"type\":\"paragraph\",\"data\":{\"text\":\"<a href=\\\"/lms/courses/new/edit\\\">Create a Course</a>\",\"col\":4}},{\"id\":\"3TVyc9AkPy\",\"type\":\"paragraph\",\"data\":{\"text\":\"<a href=\\\"/app/web-page/new-web-page-1\\\">Setup a Home Page</a>\",\"col\":4}},{\"id\":\"9zcbqpu2gm\",\"type\":\"paragraph\",\"data\":{\"text\":\"<a href=\\\"/app/lms-settings/LMS%20Settings\\\">LMS Settings</a>\",\"col\":4}},{\"id\":\"0ATmnKmXjc\",\"type\":\"paragraph\",\"data\":{\"text\":\"<a href=\\\"https://docs.frappe.io/learning\\\">Documentation</a>\",\"col\":4}},{\"id\":\"C128a4abjX\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"5q4sPiv2ci\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Signups\",\"col\":6}},{\"id\":\"8NSaRaEV5u\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Enrollments\",\"col\":6}},{\"id\":\"kMuzko0uAU\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"iuvIOHmztI\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px;\\\"><b>Statistics</b></span>\",\"col\":12}},{\"id\":\"l0VTd66Uy2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Users\",\"col\":4}},{\"id\":\"wAWZin1KKk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course\",\"col\":4}},{\"id\":\"RLrIlFx0Hd\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Enrollments\",\"col\":4}},{\"id\":\"OuhWkhCQmq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course Completed\",\"col\":4}},{\"id\":\"3g8QmNqUXG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Certificate\",\"col\":4}},{\"id\":\"EZsdsujs8N\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Evaluation\",\"col\":4}},{\"id\":\"s-nfsFQbGV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"jeOBWBzHEa\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Master</b></span>\",\"col\":12}},{\"id\":\"sVhgfS5GIh\",\"type\":\"card\",\"data\":{\"card_name\":\"Course Data\",\"col\":4}},{\"id\":\"Iea0snm4Fg\",\"type\":\"card\",\"data\":{\"card_name\":\"Course Stats\",\"col\":4}},{\"id\":\"bZB7RqOl6a\",\"type\":\"card\",\"data\":{\"card_name\":\"Certification\",\"col\":4}}]",
+ "creation": "2021-10-21 17:20:01.358903",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "education",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "LMS",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Course Data",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Course",
+   "link_count": 0,
+   "link_to": "LMS Course",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Chapter",
+   "link_count": 0,
+   "link_to": "Course Chapter",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Lesson",
+   "link_count": 0,
+   "link_to": "Course Lesson",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Quiz",
+   "link_count": 0,
+   "link_to": "LMS Quiz",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Quiz Submission",
+   "link_count": 0,
+   "link_to": "LMS Quiz Submission",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Course Stats",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Interest",
+   "link_count": 0,
+   "link_to": "LMS Course Interest",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Review",
+   "link_count": 0,
+   "link_to": "LMS Course Review",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Certification",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Certification",
+   "link_count": 0,
+   "link_to": "LMS Certificate",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Evaluation Request",
+   "link_count": 0,
+   "link_to": "LMS Certificate Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Evaluation",
+   "link_count": 0,
+   "link_to": "LMS Certificate Evaluation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-11-21 12:16:25.886431",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "LMS",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "format": "{} Enrolled",
+   "label": "Enrollments",
+   "link_to": "LMS Enrollment",
+   "stats_filter": "{\"member_type\":[\"=\",\"Student\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "format": "{} Completed",
+   "label": "Course Completed",
+   "link_to": "LMS Enrollment",
+   "stats_filter": "{\"progress\":[\"like\",\"%100%\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "format": "{} Passed",
+   "label": "Evaluation",
+   "link_to": "LMS Certificate Evaluation",
+   "stats_filter": "{\"status\":[\"=\",\"Pass\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "format": "{} Active",
+   "label": "Users",
+   "link_to": "User",
+   "stats_filter": "{\"enabled\":[\"=\",1]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "format": "{} Granted",
+   "label": "Certificate",
+   "link_to": "LMS Certificate",
+   "stats_filter": "{\"name\":[\"is\",\"set\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "format": "{} Published",
+   "label": "Course",
+   "link_to": "LMS Course",
+   "stats_filter": "{\"published\":[\"=\",1]}",
+   "type": "DocType"
+  }
+ ],
+ "title": "LMS",
+ "type": "Workspace"
+}

@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-03-29 09:32:16.769951",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member",
+  "member_name",
+  "column_break_ueht",
+  "course",
+  "batch_name",
+  "section_break_zwfi",
+  "evaluator",
+  "evaluator_name",
+  "column_break_5",
+  "date",
+  "start_time",
+  "end_time",
+  "section_break_6",
+  "rating",
+  "status",
+  "column_break_10",
+  "summary"
+ ],
+ "fields": [
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Course",
+   "options": "LMS Course",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Member",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "in_list_view": 1,
+   "label": "Rating",
+   "mandatory_depends_on": "eval:doc.status == 'Pass'"
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Small Text",
+   "label": "Summary",
+   "mandatory_depends_on": "eval:doc.status != 'Pending' && doc.status != 'In Progress'"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "label": "End Time"
+  },
+  {
+   "fetch_from": "member.full_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nIn Progress\nPass\nFail",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break",
+   "label": "Evaluation Details"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "batch_name",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Batch Name",
+   "options": "LMS Batch"
+  },
+  {
+   "fieldname": "column_break_ueht",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_zwfi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "evaluator",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Evaluator",
+   "options": "User"
+  },
+  {
+   "fetch_from": "evaluator.full_name",
+   "fieldname": "evaluator_name",
+   "fieldtype": "Data",
+   "label": "Evaluator Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-11 11:20:06.233491",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "LMS Certificate Evaluation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Batch Evaluator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Green",
+   "title": "Pass"
+  },
+  {
+   "color": "Red",
+   "title": "Fail"
+  },
+  {
+   "color": "Blue",
+   "title": "Pending"
+  },
+  {
+   "color": "Orange",
+   "title": "In Progress"
+  }
+ ],
+ "title_field": "member_name"
+}

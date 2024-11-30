@@ -1,0 +1,151 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{####} {title}",
+ "creation": "2021-05-03 05:49:08.383058",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "column_break_3",
+  "course",
+  "course_title",
+  "scorm_section",
+  "is_scorm_package",
+  "scorm_package",
+  "scorm_package_path",
+  "column_break_dlnw",
+  "manifest_file",
+  "launch_file",
+  "section_break_5",
+  "lessons"
+ ],
+ "fields": [
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Course",
+   "options": "LMS Course",
+   "reqd": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lessons",
+   "fieldtype": "Table",
+   "label": "Lessons",
+   "options": "Lesson Reference"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_scorm_package",
+   "fieldtype": "Check",
+   "label": "Is SCORM Package"
+  },
+  {
+   "depends_on": "is_scorm_package",
+   "fieldname": "manifest_file",
+   "fieldtype": "Code",
+   "label": "Manifest File",
+   "read_only": 1
+  },
+  {
+   "depends_on": "is_scorm_package",
+   "fieldname": "launch_file",
+   "fieldtype": "Code",
+   "label": "Launch File",
+   "read_only": 1
+  },
+  {
+   "fieldname": "scorm_section",
+   "fieldtype": "Section Break",
+   "label": "SCORM"
+  },
+  {
+   "fieldname": "scorm_package",
+   "fieldtype": "Link",
+   "label": "SCORM Package",
+   "options": "File",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dlnw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "is_scorm_package",
+   "fieldname": "scorm_package_path",
+   "fieldtype": "Code",
+   "label": "SCORM Package Path",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "course.title",
+   "fieldname": "course_title",
+   "fieldtype": "Data",
+   "label": "Course Title",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Lessons",
+   "link_doctype": "Course Lesson",
+   "link_fieldname": "chapter"
+  }
+ ],
+ "modified": "2024-11-15 12:03:31.370943",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "Course Chapter",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LMS Student",
+   "select": 1,
+   "share": 1
+  }
+ ],
+ "search_fields": "title",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

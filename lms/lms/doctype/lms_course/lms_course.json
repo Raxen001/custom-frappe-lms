@@ -1,0 +1,350 @@
+{
+ "actions": [
+  {
+   "action": "lms.lms.doctype.lms_course.lms_course.reindex_exercises",
+   "action_type": "Server Action",
+   "group": "Reindex",
+   "label": "Reindex Exercises"
+  }
+ ],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2022-02-22 15:28:26.091549",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "video_link",
+  "column_break_3",
+  "instructors",
+  "tags",
+  "column_break_htgn",
+  "image",
+  "category",
+  "status",
+  "section_break_7",
+  "published",
+  "published_on",
+  "column_break_10",
+  "upcoming",
+  "featured",
+  "disable_self_learning",
+  "section_break_18",
+  "short_introduction",
+  "column_break_viqw",
+  "description",
+  "section_break_gglp",
+  "chapters",
+  "related_courses",
+  "pricing_tab",
+  "pricing_section",
+  "paid_course",
+  "column_break_acoj",
+  "course_price",
+  "currency",
+  "amount_usd",
+  "certification_tab",
+  "certification_section",
+  "enable_certification",
+  "column_break_rxww",
+  "expiry",
+  "tab_4_tab",
+  "statistics_section",
+  "enrollments",
+  "lessons",
+  "rating"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "width": "200"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "video_link",
+   "fieldtype": "Data",
+   "label": "Video Embed Link"
+  },
+  {
+   "fieldname": "short_introduction",
+   "fieldtype": "Small Text",
+   "label": "Short Introduction",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disable_self_learning",
+   "fieldtype": "Check",
+   "label": "Disable Self Learning"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Preview Image",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags"
+  },
+  {
+   "default": "0",
+   "fieldname": "upcoming",
+   "fieldtype": "Check",
+   "label": "Upcoming"
+  },
+  {
+   "fieldname": "chapters",
+   "fieldtype": "Table",
+   "label": "Chapters",
+   "options": "Chapter Reference"
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Table MultiSelect",
+   "in_standard_filter": 1,
+   "label": "Instructors",
+   "max_height": "50px",
+   "options": "Course Instructor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Course Settings"
+  },
+  {
+   "fieldname": "certification_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_certification",
+   "fieldtype": "Check",
+   "label": "Enable Certification"
+  },
+  {
+   "default": "0",
+   "depends_on": "enable_certification",
+   "fieldname": "expiry",
+   "fieldtype": "Int",
+   "label": "Certification Expires After (Years)"
+  },
+  {
+   "fieldname": "related_courses",
+   "fieldtype": "Table",
+   "label": "Related Courses",
+   "options": "Related Courses"
+  },
+  {
+   "default": "In Progress",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "In Progress\nUnder Review\nApproved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "paid_course",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "mandatory_depends_on": "paid_course",
+   "options": "Currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "paid_course",
+   "fieldtype": "Check",
+   "label": "Paid Course"
+  },
+  {
+   "depends_on": "paid_course",
+   "fieldname": "course_price",
+   "fieldtype": "Currency",
+   "label": "Course Price",
+   "mandatory_depends_on": "paid_course"
+  },
+  {
+   "fieldname": "column_break_rxww",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_acoj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "paid_course",
+   "description": "If you set an amount here, then the USD equivalent setting will not get applied.",
+   "fieldname": "amount_usd",
+   "fieldtype": "Currency",
+   "label": "Amount (USD)"
+  },
+  {
+   "fieldname": "published_on",
+   "fieldtype": "Date",
+   "label": "Published On"
+  },
+  {
+   "default": "0",
+   "fieldname": "featured",
+   "fieldtype": "Check",
+   "label": "Featured"
+  },
+  {
+   "fieldname": "column_break_viqw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_gglp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pricing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Pricing"
+  },
+  {
+   "fieldname": "certification_tab",
+   "fieldtype": "Tab Break",
+   "label": "Certification"
+  },
+  {
+   "fieldname": "column_break_htgn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "LMS Category"
+  },
+  {
+   "fieldname": "tab_4_tab",
+   "fieldtype": "Tab Break",
+   "label": "Statistics"
+  },
+  {
+   "fieldname": "statistics_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "enrollments",
+   "fieldtype": "Data",
+   "label": "Enrollments",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "lessons",
+   "fieldtype": "Data",
+   "label": "Lessons",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "rating",
+   "fieldtype": "Data",
+   "label": "Rating",
+   "read_only": 1
+  }
+ ],
+ "is_published_field": "published",
+ "links": [
+  {
+   "group": "Chapters",
+   "link_doctype": "Course Chapter",
+   "link_fieldname": "course"
+  },
+  {
+   "group": "Batches",
+   "link_doctype": "LMS Batch Old",
+   "link_fieldname": "course"
+  },
+  {
+   "group": "Mentors",
+   "link_doctype": "LMS Course Mentor Mapping",
+   "link_fieldname": "course"
+  },
+  {
+   "group": "Interests",
+   "link_doctype": "LMS Course Interest",
+   "link_fieldname": "course"
+  }
+ ],
+ "make_attachments_public": 1,
+ "modified": "2024-10-30 23:08:31.842860",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "LMS Course",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Course Creator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}
