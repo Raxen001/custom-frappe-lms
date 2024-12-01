@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-f89d6064'], (function (workbox) { 'use strict';
+define(['./workbox-3ad5617a'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
@@ -78,21 +78,50 @@ define(['./workbox-f89d6064'], (function (workbox) { 'use strict';
    * See https://goo.gl/S9QRab
    */
   workbox.precacheAndRoute([{
-    "url": "registerSW.js",
-    "revision": "3ca0b8505b4bec776b69afdba2768812"
+    "url": "suppress-warnings.js",
+    "revision": "d41d8cd98f00b204e9800998ecf8427e"
   }, {
     "url": "index.html",
-    "revision": "0.24m6j9nhrv8"
+    "revision": "0.8oji6maog7"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
     allowlist: [/^\/$/]
   }));
-  workbox.registerRoute(/\/api\/.*\/*.*/, new workbox.NetworkOnly({
-    plugins: [new workbox.BackgroundSyncPlugin("myQueueName", {
-      maxRetentionTime: 1440
+  workbox.registerRoute(({
+    request,
+    url
+  }) => request.destination === "fetch" || url.pathname.includes("/api/"), new workbox.NetworkFirst({
+    "cacheName": "api-cache",
+    "networkTimeoutSeconds": 10,
+    plugins: [new workbox.ExpirationPlugin({
+      maxEntries: 50,
+      maxAgeSeconds: 86400
+    }), new workbox.CacheableResponsePlugin({
+      statuses: [0, 200]
     })]
-  }), 'POST');
+  }), 'GET');
+  workbox.registerRoute(({
+    request,
+    url
+  }) => request.destination === "fetch" || url.pathname.endsWith(".json"), new workbox.CacheFirst({
+    "cacheName": "json-cache",
+    plugins: [new workbox.ExpirationPlugin({
+      maxEntries: 30,
+      maxAgeSeconds: 604800
+    }), new workbox.CacheableResponsePlugin({
+      statuses: [0, 200]
+    })]
+  }), 'GET');
+  workbox.registerRoute(({
+    request
+  }) => request.destination === "image" || request.destination === "script" || request.destination === "style", new workbox.StaleWhileRevalidate({
+    "cacheName": "static-assets-cache",
+    plugins: [new workbox.ExpirationPlugin({
+      maxEntries: 100,
+      maxAgeSeconds: 2592000
+    })]
+  }), 'GET');
 
 }));
 //# sourceMappingURL=sw.js.map

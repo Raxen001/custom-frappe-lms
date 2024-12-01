@@ -18,7 +18,7 @@ export default defineConfig({
 		VitePWA({
 		  injectRegister: 'auto',
 		  strategies: 'injectManifest',
-		  srcDir: 'public/',
+		  srcDir: 'src',
 		  filename: 'sw.ts',
 		  start_url: "/",
 		  scope: "/",

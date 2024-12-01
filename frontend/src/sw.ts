@@ -13,8 +13,8 @@ declare let self: ServiceWorkerGlobalScope
 declare type ExtendableEvent = any
 
 const data = {
-  race: false,
-  debug: false,
+  race: true,
+  debug: true,
   credentials: 'same-origin',
   networkTimeoutSeconds: 0,
   fallback: 'lms.html'
@@ -22,7 +22,23 @@ const data = {
 
 const cacheName = cacheNames.runtime
 
+
+// cache fetch requests
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    (async function () {
+      const cache = await caches.open('mysite-dynamic');
+      const cachedResponse = await cache.match(event.request);
+      if (cachedResponse) return cachedResponse;
+      const networkResponse = await fetch(event.request);
+      event.waitUntil(cache.put(event.request, networkResponse.clone()));
+      return networkResponse;
+    })(),
+  );
+});
+
 function buildStrategy(): Strategy {
+  let race = true;
   if (race) {
     class CacheNetworkRace extends Strategy {
       _handle(request: Request, handler: StrategyHandler): Promise<Response | undefined> {
@@ -77,6 +93,7 @@ self.addEventListener('install', (event: ExtendableEvent) => {
   )
 })
 
+
 self.addEventListener('activate', (event: ExtendableEvent) => {
   // - clean up outdated runtime cache
   event.waitUntil(
@@ -119,6 +136,7 @@ setCatchHandler(({ event }): Promise<Response> => {
       return Promise.resolve(Response.error())
   }
 })
+
 
 // this is necessary, since the new service worker will keep on skipWaiting state
 // and then, caches will not be cleared since it is not activated
