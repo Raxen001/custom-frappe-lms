@@ -233,6 +233,7 @@ onMounted(() => {
 
 const lesson = createResource({
 	url: 'lms.lms.utils.get_lesson',
+        method: 'GET',
 	cache: ['lesson', props.courseName, props.chapterNumber, props.lessonNumber],
 	makeParams(values) {
 		return {

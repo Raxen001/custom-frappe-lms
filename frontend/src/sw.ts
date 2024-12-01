@@ -1,6 +1,10 @@
 import { cacheNames, clientsClaim } from 'workbox-core'
 import { registerRoute, setCatchHandler, setDefaultHandler } from 'workbox-routing'
 import type { StrategyHandler } from 'workbox-strategies'
+
+import { createHandlerBoundToURL, precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
+import { NavigationRoute, registerRoute } from 'workbox-routing'
+
 import {
   NetworkFirst,
   NetworkOnly,
@@ -12,22 +16,25 @@ import type { ManifestEntry } from 'workbox-build'
 declare let self: ServiceWorkerGlobalScope
 declare type ExtendableEvent = any
 
+cleanupOutdatedCaches()
+
 const data = {
   race: true,
   debug: true,
   credentials: 'same-origin',
   networkTimeoutSeconds: 0,
-  fallback: 'lms.html'
+  fallback: '/'
 }
 
-const cacheName = cacheNames.runtime
+// const cacheName = cacheNames.runtime
+const cacheName = "isitworking"
 
 
 // cache fetch requests
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     (async function () {
-      const cache = await caches.open('mysite-dynamic');
+      const cache = await caches.open(cacheName);
       const cachedResponse = await cache.match(event.request);
       if (cachedResponse) return cachedResponse;
       const networkResponse = await fetch(event.request);
@@ -118,12 +125,13 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
   )
 })
 
+precacheAndRoute(self.__WB_MANIFEST)
 registerRoute(
   ({ url }) => manifestURLs.includes(url.href),
-  buildStrategy()
+  new NetworkFirst({ cacheName })
 )
 
-setDefaultHandler(new NetworkOnly())
+setDefaultHandler(new NetworkFirst())
 
 // fallback to app-shell for document request
 setCatchHandler(({ event }): Promise<Response> => {

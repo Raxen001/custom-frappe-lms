@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-3ad5617a'], (function (workbox) { 'use strict';
+define(['./workbox-ed3775ef'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
@@ -78,50 +78,90 @@ define(['./workbox-3ad5617a'], (function (workbox) { 'use strict';
    * See https://goo.gl/S9QRab
    */
   workbox.precacheAndRoute([{
+    "url": "registerSW.js",
+    "revision": "3ca0b8505b4bec776b69afdba2768812"
+  }, {
     "url": "suppress-warnings.js",
     "revision": "d41d8cd98f00b204e9800998ecf8427e"
   }, {
     "url": "index.html",
-    "revision": "0.8oji6maog7"
+    "revision": "0.l2l7apid72"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
     allowlist: [/^\/$/]
   }));
   workbox.registerRoute(({
-    request,
     url
-  }) => request.destination === "fetch" || url.pathname.includes("/api/"), new workbox.NetworkFirst({
-    "cacheName": "api-cache",
-    "networkTimeoutSeconds": 10,
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 50,
-      maxAgeSeconds: 86400
-    }), new workbox.CacheableResponsePlugin({
+  }) => {
+    return true;
+  }, new workbox.NetworkFirst({
+    "cacheName": "fetch-cache",
+    plugins: [new workbox.CacheableResponsePlugin({
       statuses: [0, 200]
     })]
   }), 'GET');
   workbox.registerRoute(({
-    request,
     url
-  }) => request.destination === "fetch" || url.pathname.endsWith(".json"), new workbox.CacheFirst({
-    "cacheName": "json-cache",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 30,
-      maxAgeSeconds: 604800
-    }), new workbox.CacheableResponsePlugin({
-      statuses: [0, 200]
-    })]
-  }), 'GET');
+  }) => url.pathname === "/api/method/lms.lms.utils.get_lesson", new workbox.NetworkFirst({
+    "cacheName": "motherfuckingcache",
+    plugins: [{
+      cacheKeyWillBeUsed: async ({
+        request
+      }) => {
+        console.log("[KYEGEN]: key generation goes brrr...");
+        const clonedRequest = request.clone();
+        const body = await clonedRequest.text();
+        return `${request.url}-${body}`;
+      }
+    }, {
+      fetchDidSucceed: async ({
+        response
+      }) => {
+        console.log("[fetch success]: idk whatsgoingon");
+        const clonedResponse = response.clone();
+        const headers = new Headers(clonedResponse.headers);
+        headers.set("Cache-Control", "max-age=360000");
+        return new Response(clonedResponse.body, {
+          status: clonedResponse.status,
+          statusText: clonedResponse.statusText,
+          headers
+        });
+      }
+    }]
+  }), 'POST');
   workbox.registerRoute(({
-    request
-  }) => request.destination === "image" || request.destination === "script" || request.destination === "style", new workbox.StaleWhileRevalidate({
-    "cacheName": "static-assets-cache",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 100,
-      maxAgeSeconds: 2592000
-    })]
-  }), 'GET');
+    url
+  }) => {
+    return true;
+  }, new workbox.NetworkFirst({
+    "cacheName": "post-cache-v2",
+    plugins: [{
+      cacheKeyWillBeUsed: async ({
+        request
+      }) => {
+        if (request.method === "POST") {
+          const clonedRequest = request.clone();
+          const body = await clonedRequest.text();
+          return `${request.url}-${body}`;
+        }
+        return request.url;
+      }
+    }, {
+      fetchDidSucceed: async ({
+        response
+      }) => {
+        const clonedResponse = response.clone();
+        const headers = new Headers(clonedResponse.headers);
+        headers.set("Cache-Control", "max-age=360000");
+        return new Response(clonedResponse.body, {
+          status: clonedResponse.status,
+          statusText: clonedResponse.statusText,
+          headers
+        });
+      }
+    }]
+  }), 'POST');
 
 }));
 //# sourceMappingURL=sw.js.map
