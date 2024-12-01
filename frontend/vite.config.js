@@ -18,9 +18,10 @@ export default defineConfig({
 		VitePWA({
 		  injectRegister: 'auto',
 		  strategies: 'injectManifest',
-		  srcDir: 'src',
+		  srcDir: 'public/',
 		  filename: 'sw.ts',
-		  start_url: "/lms",
+		  start_url: "/",
+		  scope: "/",
 		  display: "fullscreen",
 		  includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
 		  manifest: {
@@ -89,4 +90,8 @@ export default defineConfig({
 	optimizeDeps: {
 		include: ['frappe-ui > feather-icons', 'showdown', 'engine.io-client'],
 	},
+    server: {
+		host: 'invictus.localhost',
+		port: 8080
+	}
 })
