@@ -149,7 +149,8 @@ class LMSBatch(Document):
 		for student in self.students:
 			if student.is_new():
 				live_classes = frappe.get_all(
-					"LMS Live Class", {"batch_name": self.name}, ["name", "event"]
+					# "LMS Live Class", {"batch_name": self.name}, ["name", "event"]
+					"jitsi live class", {"batch_name": self.name}, ["name", "event"]
 				)
 
 				for live_class in live_classes:
@@ -209,6 +210,10 @@ def create_live_class(
 	batch_name, title, duration, date, time, timezone, auto_recording, description=None
 ):
 	frappe.only_for("Moderator")
+	# meet_url = "https://meet.jit.si/"
+	# meet_url += "invictus" + '/'
+	# meet_url += frappe.utils.random_string(10)
+	meet_url = frappe.utils.random_string(10)
 	payload = {
 		"topic": title,
 		"start_time": format_datetime(f"{date} {time}", "yyyy-MM-ddTHH:mm:ssZ"),
@@ -220,57 +225,55 @@ def create_live_class(
 		else auto_recording.lower(),
 		"timezone": timezone,
 	}
-	headers = {
-		"Authorization": "Bearer " + authenticate(),
-		"content-type": "application/json",
-	}
-	response = requests.post(
-		"https://api.zoom.us/v2/users/me/meetings", headers=headers, data=json.dumps(payload)
+	# response = requests.post(
+	# 	meet_url, #data=json.dumps(payload)
+	# )
+
+	# if response.status_code == 201:
+	# data = json.loads(response.text)
+	payload.update(
+		{
+			"doctype": "jitsi live class",
+			# "start_url": data.get("start_url"),
+			# "join_url": data.get("join_url"),
+			"start_url": meet_url,
+			"join_url": meet_url,
+			"title": title,
+			"host": frappe.session.user,
+			"date": date,
+			"time": time,
+			"batch_name": batch_name,
+			# "password": data.get("password"),
+			"description": description,
+			"auto_recording": auto_recording,
+		}
 	)
-
-	if response.status_code == 201:
-		data = json.loads(response.text)
-		payload.update(
-			{
-				"doctype": "LMS Live Class",
-				"start_url": data.get("start_url"),
-				"join_url": data.get("join_url"),
-				"title": title,
-				"host": frappe.session.user,
-				"date": date,
-				"time": time,
-				"batch_name": batch_name,
-				"password": data.get("password"),
-				"description": description,
-				"auto_recording": auto_recording,
-			}
-		)
-		class_details = frappe.get_doc(payload)
-		class_details.save()
-		return class_details
+	class_details = frappe.get_doc(payload)
+	class_details.save()
+	return class_details
 
 
-def authenticate():
-	zoom = frappe.get_single("Zoom Settings")
-	if not zoom.enable:
-		frappe.throw(_("Please enable Zoom Settings to use this feature."))
-
-	authenticate_url = f"https://zoom.us/oauth/token?grant_type=account_credentials&account_id={zoom.account_id}"
-
-	headers = {
-		"Authorization": "Basic "
-		+ base64.b64encode(
-			bytes(
-				zoom.client_id
-				+ ":"
-				+ zoom.get_password(fieldname="client_secret", raise_exception=False),
-				encoding="utf8",
-			)
-		).decode()
-	}
-	response = requests.request("POST", authenticate_url, headers=headers)
-	return response.json()["access_token"]
-
+# def authenticate():
+# 	zoom = frappe.get_single("Zoom Settings")
+# 	if not zoom.enable:
+# 		frappe.throw(_("Please enable Zoom Settings to use this feature."))
+#
+# 	authenticate_url = f"https://zoom.us/oauth/token?grant_type=account_credentials&account_id={zoom.account_id}"
+#
+# 	headers = {
+# 		"Authorization": "Basic "
+# 		+ base64.b64encode(
+# 			bytes(
+# 				zoom.client_id
+# 				+ ":"
+# 				+ zoom.get_password(fieldname="client_secret", raise_exception=False),
+# 				encoding="utf8",
+# 			)
+# 		).decode()
+# 	}
+# 	response = requests.request("POST", authenticate_url, headers=headers)
+# 	return response.json()["access_token"]
+#
 
 @frappe.whitelist()
 def create_batch(
@@ -393,14 +396,16 @@ def get_batch_timetable(batch):
 
 def get_live_classes(batch):
 	live_classes = frappe.get_all(
-		"LMS Live Class",
+		# "LMS Live Class",
+		"jitsi live class",
 		{"batch_name": batch},
 		["name", "title", "date", "time as start_time", "duration", "join_url as url"],
 		order_by="date",
 	)
 	for class_ in live_classes:
 		class_.end_time = class_.start_time + timedelta(minutes=class_.duration)
-		class_.reference_doctype = "LMS Live Class"
+		# class_.reference_doctype = "LMS Live Class"
+		class_.reference_doctype = "jitsi live class"
 		class_.reference_docname = class_.name
 		class_.icon = "icon-call"
 

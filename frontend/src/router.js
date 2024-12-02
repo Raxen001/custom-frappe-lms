@@ -193,6 +193,16 @@ const routes = [
 		name: 'Programs',
 		component: () => import('@/pages/Programs.vue'),
 	},
+	{
+		path: '/liveclass',
+		name: 'LiveClassList',
+		component: () => import('@/pages/LiveClassList.vue'),
+	},
+	{
+		path: '/meet/:meetid',
+		name: 'Meet',
+		component: () => import('@/pages/Meet.vue'),
+	},
 ]
 
 let router = createRouter({

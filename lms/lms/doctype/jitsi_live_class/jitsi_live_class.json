@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2024-12-02 18:14:04.380655",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "host",
+  "batch_name",
+  "event",
+  "column_break_astv",
+  "description",
+  "section_break_glxh",
+  "date",
+  "duration",
+  "column_break_spvt",
+  "time",
+  "timezone",
+  "section_break_yrpq",
+  "password",
+  "start_url",
+  "column_break_yokr",
+  "auto_recording",
+  "join_url"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "host",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Host",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch_name",
+   "fieldtype": "Link",
+   "label": "Batch",
+   "options": "LMS Batch"
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "label": "Event",
+   "options": "Event",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_astv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_glxh",
+   "fieldtype": "Section Break",
+   "label": "Date and Time"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Int",
+   "label": "Duration",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_spvt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "timezone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Timezone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_yrpq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password"
+  },
+  {
+   "fieldname": "start_url",
+   "fieldtype": "Small Text",
+   "label": "Start URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yokr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "No Recording",
+   "fieldname": "auto_recording",
+   "fieldtype": "Select",
+   "label": "Auto Recording",
+   "options": "No Recording\nLocal\nCloud"
+  },
+  {
+   "fieldname": "join_url",
+   "fieldtype": "Small Text",
+   "label": "Join URL",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-02 18:14:04.380655",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "jitsi live class",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Moderator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LMS Student",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

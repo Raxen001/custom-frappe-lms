@@ -1,0 +1,30 @@
+<template>
+	<div id="jitsi__con" class="w-full h-full"></div>
+</template>
+
+<script setup>
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router';
+
+let route = useRoute();
+let meet_id = route.params.meetid;
+
+
+onMounted(() => {
+
+	// let domain = "meet.jit.si";
+	let domain = "localhost:8443";
+	let options = {
+		roomName: meet_id,
+		// parentNode: document.querySelector("#jitsi__con"),
+		parentNode: document.querySelector("#jitsi__con"),
+		configOverwrite: {},
+		interfaceConfigOverwrite: {}
+	}
+
+	let api = new JitsiMeetExternalAPI(domain, options);
+
+})
+
+
+</script>

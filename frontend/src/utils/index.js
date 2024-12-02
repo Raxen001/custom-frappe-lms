@@ -466,6 +466,12 @@ export function getSidebarLinks() {
 			to: 'Statistics',
 			activeFor: ['Statistics'],
 		},
+		{
+			label: 'LiveClass',
+			icon: 'Video',
+			to: 'LiveClassList',
+			activeFor: ['LiveClassList'],
+		},
 	]
 }
 
