@@ -199,6 +199,7 @@ def create_batch_source():
 		"Google Search",
 	]
 
+
 	for source in sources:
 		if not frappe.db.exists("LMS Source", source):
 			doc = frappe.new_doc("LMS Source")
