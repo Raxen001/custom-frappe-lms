@@ -203,6 +203,11 @@ const routes = [
 		name: 'Meet',
 		component: () => import('@/pages/Meet.vue'),
 	},
+	{
+		path: '/aichat',
+		name: 'Aichat',
+		component: () => import('@/pages/Aichat.vue'),
+	},
 ]
 
 let router = createRouter({

@@ -12,8 +12,8 @@ let meet_id = route.params.meetid;
 
 onMounted(() => {
 
-	// let domain = "meet.jit.si";
-	let domain = "localhost:8443";
+	let domain = "meet.jit.si";
+	// let domain = "localhost:8443";
 	let options = {
 		roomName: meet_id,
 		// parentNode: document.querySelector("#jitsi__con"),

@@ -472,6 +472,12 @@ export function getSidebarLinks() {
 			to: 'LiveClassList',
 			activeFor: ['LiveClassList'],
 		},
+		{
+			label: 'AiChatBuddy',
+			icon: 'MessageSquareIcon',
+			to: 'Aichat',
+			activeFor: ['Aichat'],
+		},
 	]
 }
 
