@@ -126,7 +126,7 @@
   </template>
 
   <script>
-  import { ref, onMounted, nextTick } from 'vue';
+  import { ref, onMounted, nextTick, inject } from 'vue';
 
   export default {
 	name: 'Aichatbot',
@@ -135,9 +135,13 @@
 	  const userInput = ref('');
 	  const chatContainer = ref(null);
 	  const isLoading = ref(false);
-	  const username = ref('student');
+	  // const username = ref('student');
 	  const tempUsername = ref('');
 	  const usernameError = ref('');
+
+	  const user = inject('$user');
+	  const username = ref("student");
+	  console.log("fuck: ", username.value)
 
 	  const scrollToBottom = () => {
 		if (chatContainer.value) {
@@ -182,7 +186,7 @@
 			},
 			body: JSON.stringify(
 			{
-			        model: "llama3.2",
+			        model: "qwen2.5-coder:7b",
 				messages: [{
 					content: userMessage.content,
 					role: 'user',

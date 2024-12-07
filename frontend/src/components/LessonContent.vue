@@ -1,14 +1,4 @@
 <template>
-	<div v-if="youtube">
-		<iframe
-			class="youtube-video"
-			:src="getYouTubeVideoSource(youtube.split('/').pop())"
-			width="100%"
-			height="400"
-			frameborder="0"
-			allowfullscreen
-		></iframe>
-	</div>
 	<div v-for="block in content?.split('\n\n')">
 		<div v-if="block.includes('{{ YouTubeVideo')">
 			<iframe
@@ -17,21 +7,30 @@
 				width="100%"
 				height="400"
 				frameborder="0"
-				allowfullscreen
+				allowfullscreen=""
 			></iframe>
 		</div>
 		<div v-else-if="block.includes('{{ Quiz')">
 			<Quiz :quiz="getId(block)" />
 		</div>
-		<div v-else-if="block.includes('{{ Video')">
-			<video
-				controls
-				width="100%"
-				controlsList="nodownload"
-				oncontextmenu="return false;"
-			>
-				<source :src="getId(block)" type="video/mp4" />
-			</video>
+		<div v-else-if="block.includes('{{ Video')" id='peertube-con' class="p-4">
+			<!-- <iframe -->
+			<!-- 	title="name_example" -->
+			<!-- 	width="560" -->
+			<!-- 	height="315" -->
+			<!-- 	:src="getId(block)" -->
+			<!-- 	allowfullscreen="" -->
+			<!-- 	frameborder="0" -->
+			<!-- > -->
+			<!-- </iframe> -->
+			<!-- <video -->
+			<!-- 	controls -->
+			<!-- 	width="100%" -->
+			<!-- 	controlsList="nodownload" -->
+			<!-- 	oncontextmenu="return false;" -->
+			<!-- > -->
+			<!-- 	<source :src="getId(block)" type="video/mp4" /> -->
+			<!-- </video> -->
 		</div>
 		<div v-else-if="block.includes('{{ PDF')">
 			<iframe

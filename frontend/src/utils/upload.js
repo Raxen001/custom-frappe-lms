@@ -57,7 +57,11 @@ export class Upload {
 			return
 		} else if (file.file_type == 'PDF') {
 
-			this.wrapper.innerHTML = `<object data="${encodeURI( file.file_url)}" width='100%' height='700px' class="mb-4" type="application/pdf"></iframe>`
+			this.wrapper.innerHTML = `
+				<div class="p-2 pl-8" id="pdfcontent">
+				  <object data="${encodeURI( file.file_url)}" width='100%' height='760px' class="mb-4" type="application/pdf">
+				</div>
+				`
 			// this.wrapper.innerHTML = `<iframe src="https://docs.google.com/viewer?url=${
 			// 	window.location.origin
 			// }${encodeURI(

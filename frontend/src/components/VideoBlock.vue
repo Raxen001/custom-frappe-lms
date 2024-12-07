@@ -1,53 +1,64 @@
 <template>
-	<div ref="videoContainer" class="video-block group relative">
-		<video
-			@timeupdate="updateTime"
-			@ended="videoEnded"
-			@click="togglePlay"
-			oncontextmenu="return false"
-			class="rounded-lg border border-gray-100 group cursor-pointer"
-			ref="videoRef"
+
+	<div id='peertube-con'>
+		<iframe
+			title="name_example"
+			width="560" height="315"
+			:src="fileURL"
+			frameborder="0"
+			allowfullscreen=""
 		>
-			<source :src="fileURL" :type="type" />
-		</video>
-		<div
-			class="flex items-center space-x-2 bg-gray-200 rounded-md p-0.5 absolute bottom-3 w-[98%] left-0 right-0 mx-auto invisible group-hover:visible"
-		>
-			<Button variant="ghost">
-				<template #icon>
-					<Play
-						v-if="!playing"
-						@click="playVideo"
-						class="w-4 h-4 text-gray-900"
-					/>
-					<Pause v-else @click="pauseVideo" class="w-4 h-4 text-gray-900" />
-				</template>
-			</Button>
-			<Button variant="ghost" @click="toggleMute">
-				<template #icon>
-					<Volume2 v-if="!muted" class="w-4 h-4 text-gray-900" />
-					<VolumeX v-else class="w-4 h-4 text-gray-900" />
-				</template>
-			</Button>
-			<input
-				type="range"
-				min="0"
-				:max="duration"
-				step="0.1"
-				v-model="currentTime"
-				@input="changeCurrentTime"
-				class="duration-slider w-full h-1"
-			/>
-			<span class="text-xs font-medium">
-				{{ formatTime(currentTime) }} / {{ formatTime(duration) }}
-			</span>
-			<Button variant="ghost" @click="toggleFullscreen">
-				<template #icon>
-					<Maximize class="w-4 h-4 text-gray-900" />
-				</template>
-			</Button>
-		</div>
+		</iframe>
 	</div>
+	<!-- <div ref="videoContainer" class="video-block group relative"> -->
+	<!-- 	<video -->
+	<!-- 		@timeupdate="updateTime" -->
+	<!-- 		@ended="videoEnded" -->
+	<!-- 		@click="togglePlay" -->
+	<!-- 		oncontextmenu="return false" -->
+	<!-- 		class="rounded-lg border border-gray-100 group cursor-pointer" -->
+	<!-- 		ref="videoRef" -->
+	<!-- 	> -->
+	<!-- 		<source :src="fileURL" :type="type" /> -->
+	<!-- 	</video> -->
+	<!-- 	<div -->
+	<!-- 		class="flex items-center space-x-2 bg-gray-200 rounded-md p-0.5 absolute bottom-3 w-[98%] left-0 right-0 mx-auto invisible group-hover:visible" -->
+	<!-- 	> -->
+	<!-- 		<Button variant="ghost"> -->
+	<!-- 			<template #icon> -->
+	<!-- 				<Play -->
+	<!-- 					v-if="!playing" -->
+	<!-- 					@click="playVideo" -->
+	<!-- 					class="w-4 h-4 text-gray-900" -->
+	<!-- 				/> -->
+	<!-- 				<Pause v-else @click="pauseVideo" class="w-4 h-4 text-gray-900" /> -->
+	<!-- 			</template> -->
+	<!-- 		</Button> -->
+	<!-- 		<Button variant="ghost" @click="toggleMute"> -->
+	<!-- 			<template #icon> -->
+	<!-- 				<Volume2 v-if="!muted" class="w-4 h-4 text-gray-900" /> -->
+	<!-- 				<VolumeX v-else class="w-4 h-4 text-gray-900" /> -->
+	<!-- 			</template> -->
+	<!-- 		</Button> -->
+	<!-- 		<input -->
+	<!-- 			type="range" -->
+	<!-- 			min="0" -->
+	<!-- 			:max="duration" -->
+	<!-- 			step="0.1" -->
+	<!-- 			v-model="currentTime" -->
+	<!-- 			@input="changeCurrentTime" -->
+	<!-- 			class="duration-slider w-full h-1" -->
+	<!-- 		/> -->
+	<!-- 		<span class="text-xs font-medium"> -->
+	<!-- 			{{ formatTime(currentTime) }} / {{ formatTime(duration) }} -->
+	<!-- 		</span> -->
+	<!-- 		<Button variant="ghost" @click="toggleFullscreen"> -->
+	<!-- 			<template #icon> -->
+	<!-- 				<Maximize class="w-4 h-4 text-gray-900" /> -->
+	<!-- 			</template> -->
+	<!-- 		</Button> -->
+	<!-- 	</div> -->
+	<!-- </div> -->
 </template>
 <script setup>
 import { ref, onMounted, computed } from 'vue'
@@ -89,7 +100,8 @@ const fileURL = computed(() => {
 		if (url.includes('watch?v=')) {
 			url = url.replace('watch?v=', 'embed/')
 		}
-		return `${url}?autoplay=0&controls=0&disablekb=1&playsinline=1&cc_load_policy=1&cc_lang_pref=auto`
+		// return `${url}?autoplay=0&controls=1&playsinline=1&cc_load_policy=1&cc_lang_pref=auto`
+		return `${url}?autoplay=0&controls=1`
 	}
 	return props.file
 })

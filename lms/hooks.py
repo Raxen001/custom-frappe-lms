@@ -1,14 +1,14 @@
 from . import __version__ as app_version
 
-app_name = "frappe_lms"
-app_title = "Frappe LMS"
-app_publisher = "Frappe"
-app_description = "Frappe LMS App"
+app_name = "invictus LMS"
+app_title = "invictus LMS"
+app_publisher = "raxen001"
+app_description = "Invictus LMS"
 app_icon_url = "/assets/lms/images/lms-logo.png"
 app_icon_title = "Learning"
 app_icon_route = "/lms"
 app_color = "grey"
-app_email = "jannat@frappe.io"
+app_email = "raxen001@tutamail.com"
 app_license = "AGPL"
 
 # Includes in <head>

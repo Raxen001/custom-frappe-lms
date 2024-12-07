@@ -1,6 +1,6 @@
 <template>
-	<div class="">
-		<div class="grid md:grid-cols-[75%,25%] h-screen">
+	<div class="" id="testinggg">
+		<div class="grid md:grid-cols-[100%] h-screen">
 			<div class="border-r">
 				<header
 					class="sticky top-0 z-10 flex flex-col md:flex-row md:items-center justify-between border-b overflow-hidden bg-white px-3 py-2.5 sm:px-5"
@@ -59,7 +59,7 @@
 					<div class="border-t mt-4">
 						<div class="w-5/6 mx-auto pt-4">
 							<label class="block font-medium text-gray-600 mb-1">
-								{{ __('Content') }}
+								{{ __('Lesson Contents') }}
 							</label>
 							<div
 								id="content"
@@ -69,11 +69,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="">
-				<div class="sticky top-0 p-5">
-					<LessonHelp />
-				</div>
-			</div>
+			<!-- <div class=""> -->
+			<!-- 	<div class="sticky top-0 p-5"> -->
+			<!-- 		<LessonHelp /> -->
+			<!-- 	</div> -->
+			<!-- </div> -->
 		</div>
 	</div>
 </template>
