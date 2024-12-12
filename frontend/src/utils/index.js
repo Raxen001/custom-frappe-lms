@@ -478,6 +478,12 @@ export function getSidebarLinks() {
 			to: 'Aichat',
 			activeFor: ['Aichat'],
 		},
+		{
+			label: 'Peer2Peer',
+			icon: 'MessageSquareIcon',
+			to: 'Peertopeer',
+			activeFor: ['Peertopeer'],
+		},
 	]
 }
 

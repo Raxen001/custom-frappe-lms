@@ -208,6 +208,11 @@ const routes = [
 		name: 'Aichat',
 		component: () => import('@/pages/Aichat.vue'),
 	},
+	{
+		path: '/p2p',
+		name: 'Peertopeer',
+		component: () => import('@/pages/Peertopeer.vue'),
+	},
 ]
 
 let router = createRouter({
