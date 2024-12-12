@@ -50,15 +50,28 @@
 					{{ __('Start') }}
 				</router-link>
 
-				<a
+				<!-- <a -->
+				<!-- 	v-if="cls.date <= dayjs().format('YYYY-MM-DD')" -->
+				<!-- 	:href="cls.start_url" -->
+				<!-- 	target="_blank" -->
+				<!-- 	class="w-full cursor-pointer inline-flex items-center justify-center gap-2 transition-colors focus:outline-none text-gray-800 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 focus-visible:ring focus-visible:ring-gray-400 h-7 text-base px-2 rounded" -->
+				<!-- > -->
+				<!-- 	<Video class="h-4 w-4 stroke-1.5" /> -->
+				<!-- 	{{ __('Join') }} -->
+				<!-- </a> -->
+				<router-link
 					v-if="cls.date <= dayjs().format('YYYY-MM-DD')"
-					:href="cls.join_url"
-					target="_blank"
-					class="w-full cursor-pointer inline-flex items-center justify-center gap-2 transition-colors focus:outline-none text-gray-800 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 focus-visible:ring focus-visible:ring-gray-400 h-7 text-base px-2 rounded"
+					:to="{
+						name: 'Meet',
+						params: {
+							meetid: cls.start_url,
+						},
+					}"
+					class="w-1/2 cursor-pointer inline-flex items-center justify-center gap-2 transition-colors focus:outline-none text-gray-800 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 focus-visible:ring focus-visible:ring-gray-400 h-7 text-base px-2 rounded"
 				>
-					<Video class="h-4 w-4 stroke-1.5" />
+					<Monitor class="h-4 w-4 stroke-1.5" />
 					{{ __('Join') }}
-				</a>
+				</router-link>
 			</div>
 		</div>
 	</div>

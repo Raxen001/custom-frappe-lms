@@ -103,7 +103,7 @@ export class Upload {
 	}
 
 	isVideo(type) {
-		return ['mov', 'mp4', 'avi', 'mkv', 'webm'].includes(type.toLowerCase())
+		return ['mov', 'mp4', 'avi', 'mkv', 'webm', 'mpv'].includes(type.toLowerCase())
 	}
 
 	isAudio(type) {

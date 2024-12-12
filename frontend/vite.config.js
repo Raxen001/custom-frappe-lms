@@ -153,7 +153,9 @@ export default defineConfig({
         include: ['frappe-ui > feather-icons', 'showdown', 'engine.io-client'],
     },
     server: {
-        host: 'invictus.localhost',
-        port: 8080
+        // host: 'invictus.localhost',
+		// host: 'legion.tailaadcc.ts.net',
+		host: '127.0.0.1',
+        port: 8082,
     }
 })

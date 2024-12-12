@@ -179,14 +179,18 @@
 		scrollToBottom();
 
 		try {
-		  const response = await fetch('http://localhost:11434/api/chat', {
+		  // const url = 'http://localhost:11434/api/chat'
+		  // const url = 'http://legion.tailaadcc.ts.net:11434/api/chat'
+		  const url = "https://abraham-loq-15ahp9.tail6c571d.ts.net/api/chat"
+		  const response = await fetch(url, {
 			method: 'POST',
 			headers: {
 			  'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(
 			{
-			        model: "qwen2.5-coder:7b",
+			        // model: "qwen2.5-coder:7b",
+			        model: "llama3.2",
 				messages: [{
 					content: userMessage.content,
 					role: 'user',
